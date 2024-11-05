@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template:
+    "left-menu      server-menu     top-menu"  .1fr
+    "left-menu      server-menu     chat"       1fr
+    "left-menu      server-menu     message"   .1fr /
+    .05fr           .1fr            1fr;
+    background-color: beige;
+    height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .container{
+        grid-template:
+        "left-menu      top-menu"  .1fr
+        "left-menu      chat"       1fr
+        "left-menu      message"   .1fr /
+        .05fr           1fr; ;
+    }
+}
+
+.left-menu {
+    grid-area: left-menu;
+    background-color: darkkhaki;
+}
+
+.server-menu {
+    display: grid;
+    grid-area: server-menu;
+    background-color: darkgoldenrod;
+    grid-template:
+    "info"          .1fr
+    "invite"        .3fr
+    "channel-menu"  1fr/
+    1fr;
+}
+
+@media screen and (max-width: 1000px) {
+    .server-menu{
+        display: none;
+    }
+}
+
+.info {
+    grid-area: info;
+    background-color: lightcoral;
+}
+
+.invite {
+    grid-area: invite;
+    background-color: forestgreen;
+}
+
+.channel-menu {
+    display: grid;
+    grid-area: channel-menu;
+    background-color: deeppink;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.channel-menu > div {
+    background-color: rgb(211, 47, 47);
+}
+
+.top-menu {
+    grid-area: top-menu;
+    background-color: darkcyan;
+}
+
+.chat {
+    grid-area: chat;
+    background-color: greenyellow;
+}
+
+.message {
+    grid-area: message;
+    background-color: darkorchid;
+}

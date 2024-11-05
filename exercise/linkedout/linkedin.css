@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+/* Main Grid */
+.container {
+    display: grid;
+    grid-template:
+    "top-menu       top-menu        top-menu"   60px
+    "left-menu      main            right-menu" 1fr /
+    300px           1fr             300px;
+    background-color: white;
+    height: 100%;
+    gap: 30px
+}
+
+/* Make right-menu disappear */
+@media screen and (max-width: 1000px) {
+    .container {
+        grid-template:
+        "top-menu   top-menu"   60px
+        "left-menu  main    "   1fr /
+        300px       1fr;       
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        grid-template:
+        "top-menu" 60px
+        "main"     1fr /
+        1fr;
+    }
+}
+
+.top-menu {
+    display: grid;
+    grid-area: top-menu;
+    background-color: lightskyblue;
+    grid-template-columns: 1fr 1fr .8fr;
+}
+
+.top-menu > div {
+    background-color: rgb(174, 189, 47);
+    border: dotted 1px blue;
+}
+
+.left-menu {
+    display: grid;
+    grid-area: left-menu;
+    background-color: lightgreen;
+    margin-left: 50px;
+    grid-template-rows: 300px 125px;
+    gap: 10px
+}
+
+.left-menu > div {
+    background-color: rgba(96, 173, 236, 0.801);
+    border: dotted 1px red;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .left-menu{
+        display: none;
+    }
+    .left-menu > div {
+        display: none;
+    }
+}
+
+.right-menu {
+    display: grid;
+    grid-area: right-menu;
+    background-color: lightcoral;
+    margin-right: 50px;
+    grid-template-rows: 300px 100px;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .right-menu {
+        display: none;
+    }
+    .right-menu > div {
+        display: none;
+    }
+}
+
+
+.right-menu > div {
+    background-color: rgb(223, 174, 15);
+    border: dotted 1px green;
+    border-radius: 20px;
+}
+
+.main {
+    display: grid;
+    grid-area: main;
+    background-color: lightsteelblue;
+    grid-template:
+    "info"          2fr      
+    "create-post"   1fr    
+    "feed"          2fr/
+    1fr;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .main{
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .main{
+        margin-left: 50px;
+    }
+}
+
+.info {
+    grid-area: info;
+    background-color: darkcyan;
+    border-radius: 20px;
+}
+
+.create-post {
+    grid-area: create-post;
+    background-color: darkmagenta;
+    border-radius: 20px;
+}
+
+.feed {
+    grid-area: feed;
+    background-color: darkred;
+    margin-top: 20px;
+    border-radius: 20px;
+}
