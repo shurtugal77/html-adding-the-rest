@@ -14,13 +14,6 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
     gap: 10px;
 }
 
-
-@media screen and (max-width: 1000px) {
-    .container {
-        
-    }
-}
-
 .container > .topnav {
     display: grid;
     grid-column: span 3;
@@ -63,6 +56,7 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
     .search{
         display: none;
     }
+
 }
 .account {
     display: grid;
@@ -167,6 +161,12 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
 @media screen and (max-width: 1000px) {
     .right-menu{
         display: none;
+    }
+    .container {
+        grid-template-columns: .4fr 1fr
+    }
+    .container > .topnav{
+        grid-template-columns: .4fr 1fr
     }
 }
 
