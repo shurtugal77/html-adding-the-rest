@@ -8,10 +8,10 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
 
 .container {
     display: grid;
-    grid-template-rows: 50px 150px;
-    background-color: rgb(255, 255, 255);
+    grid-template-columns: .4fr 1fr .5fr;
+    background-color: rgb(190, 190, 190);
     height: 100%;
-    gap: 10px
+    gap: 10px;
 }
 
 
@@ -23,9 +23,11 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
 
 .container > .topnav {
     display: grid;
+    grid-column: span 3;
     grid-template-columns: .4fr 1fr .5fr;
+    background-color: rgb(255, 255, 255);
     gap: 10px;
-    margin: 5px;
+    padding: 5px;
 }
 
 .logo {
@@ -40,6 +42,7 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
     border: dotted 2px green;
     margin: 3px;
     place-content: center;
+    text-align: center;
 }
 
 .search {
@@ -81,50 +84,84 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
 
 .folders {
     display: grid;
-    grid-area: folders;
-    background-color: dodgerblue;
-    grid-template:
-    "compose"       .05fr
-    "sub-folders"   1fr/
-    1fr;
+    background-color: rgb(255, 255, 255);
+    grid-template-rows: 50px 350px 100px 150px ;
+    border: dotted 2px blue;
+    border-radius: 5px;
+    margin-left: 5px;
+    gap: 10px;
+    padding: 3px;
 }
 
 .compose {
-    grid-area: compose;
-    width: 100px;
+    height: 50px;
+    width: 50%;
     border: solid 1px gray;
+    border-radius: 20px;
     background-color: lightgrey;
     text-align: center;
-    padding: 10px 0;
+    justify-self: start;
+    margin-left: 10px;
     box-shadow: 0px 1px 3px darkgray;
 }
 
 .sub-folders {
     display: grid;
-    grid-area: sub-folders;
-    grid-template-rows: fit-content(100%);;
-}
-
-.mail{
-    display: grid;
-    grid-area: mail;
-    background-color: rgb(28, 160, 160);
-    /* grid-template-rows: max-content 1fr auto; */
     grid-template-rows: fit-content(100%);
+    border: dotted 2px green;
+    gap: 10px;
+    padding-left: 10px;
 }
 
-.mail > p {
-    border-bottom: 1px dotted black;
-    margin: 10px 0 10px 0;
+.meeting {
+    display: grid;
+    border: dotted 2px green;
+    gap: 10px;
+    padding-left: 10px;
 }
+
+.chat {
+    display: grid;
+    border: dotted 2px green;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.mailcenter{
+    display: grid;
+    grid-template-rows:35px 1fr;
+    background-color: rgb(255, 255, 255);
+    border: dotted 2px blue;
+    border-radius: 5px;
+}
+
+.mailcenter > div{
+    border: dotted 2px green;
+    margin: 5px;
+}
+
+.filter {
+    background-color: darkgrey;
+    place-content: center;
+}
+
+.emails > p {
+    border: dotted 2px rgb(255, 145, 0);
+    margin: 5px;
+    text-align: start;
+    place-content: center;
+    /* border-bottom: 1px dotted black;
+    margin: 10px 0 10px 0; */
+}
+
 
 .right-menu {
     display: grid;
-    grid-area: right-menu;
-    background-color: orange;
-    grid-template:
-    "settings   apps" 1fr /
-    .8fr        .2fr;
+    background-color: rgb(255, 255, 255);
+    border: dotted 2px blue;
+    border-radius: 5px;  
+    margin-right: 5px;
+    grid-template-columns: .8fr .2fr;
 }
 
 @media screen and (max-width: 1000px) {
@@ -134,23 +171,79 @@ https://stackoverflow.com/questions/14963393/my-body-background-color-disappears
 }
 
 .settings {
-    grid-area: settings;
-    background-color: brown;
-    border-radius: 20px;
+    display: grid;
+    grid-template-rows: .05fr .05fr .1px repeat(3, .4fr);
+    border: dotted 2px green;
+    margin: 5px 0 5px 5px;
 }
-
-.settings > p:nth-of-type(2){
+.settings > div:nth-of-type(2){
     width: 150px;
     text-align: center;
+    place-self: center;
     border: 1px solid grey;
     margin: 1px 10px 1px 10px;
     background-color: lightgray;
     box-shadow: 0px 1px 3px darkgray;
 }
-
-.apps {
-    grid-area: apps;
-    background-color: lawngreen;
-    border-radius: 20px;
+.settings > p{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+    margin: 0;
 }
+
+.density{
+    border: dotted 2px rgb(255, 145, 0);
+    margin: 3px;
+}
+
+.theme{
+    display: grid;
+    grid-template-rows: .1fr .8fr;
+    border: dotted 2px rgb(255, 145, 0);
+    margin: 3px;
+}
+
+.theme > div:nth-of-type(1) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.theme > div:nth-of-type(1) > p{
+    text-align: start;
+    margin: 5px 0 5px 0;
+}
+
+.theme > div:nth-of-type(1) > div > p{
+    text-align: end;
+    margin: 5px 0 5px 0;
+}
+
+.images {
+    display: grid;
+    grid-template-rows: repeat(2);
+    grid-template-columns: repeat(4, 25%);
+    border: dotted 2px rgb(255, 0, 191);
+    margin: 3px;
+    place-items: center;
+    height: 220px;
+}
+
+.inboxtype{
+    border: dotted 2px rgb(255, 145, 0);
+    margin: 3px;
+}
+.apps {
+    display: grid;
+    grid-template-rows: .3fr .7fr;
+    border: dotted 2px green;
+    margin: 5px;
+}
+
+.apps > div:nth-of-type(1){
+    display: grid;
+    grid-auto-rows: 1fr;
+    place-items: center;
+    border: dotted 2px rgb(255, 145, 0);
+    margin: 3px;
+}
+
 
