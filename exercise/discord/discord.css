@@ -127,12 +127,27 @@ body {
 
 .channel-menu {
     display: grid;
-    background-color: deeppink;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(autofit, 1fr);
 }
 
 .channel-menu > div {
-    background-color: rgb(211, 47, 47);
+    border: dotted 2px orange;
+    margin: 2px;
+    display: grid;
+    grid-auto-rows: 1fr;
+}
+
+.channel-menu > div > p {
+    margin: 0;
+    place-content: center;
+    text-align: start;
+}
+
+.channel-menu > div > div {
+    margin-left: 10px;
+    border: dotted 2px rebeccapurple;
+    margin: 2px;
+    place-content: center;
 }
 
 .main-menu {
