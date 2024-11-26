@@ -3,15 +3,30 @@ body {
     height: 100vh;
 }
 
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.eot');
+    src: url('../fonts/fontello.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fontello.woff') format('woff'),
+        url('../fonts/fontello.ttf') format('truetype'),
+        url('../fonts/fontello.svg#fontello') format('svg');
+    font-weight: normal; font-style: normal;
+}
+
+
+
 .container {
     display: grid;
-    grid-template:
-    "left-menu      server-menu     top-menu"  .1fr
-    "left-menu      server-menu     chat"       1fr
-    "left-menu      server-menu     message"   .1fr /
-    .05fr           .1fr            1fr;
-    background-color: beige;
+    grid-template-columns: .05fr .15fr 1fr;
+    background-color: grey;
     height: 100%;
+    gap: 5px;
+}
+
+.container > div {
+    border: dotted 2px blue;
+    border-radius: 5px;
+    background-color: white;
 }
 
 @media screen and (max-width: 1000px) {
@@ -25,19 +40,18 @@ body {
 }
 
 .left-menu {
-    grid-area: left-menu;
-    background-color: darkkhaki;
+    background-color: white;
 }
 
 .server-menu {
     display: grid;
-    grid-area: server-menu;
-    background-color: darkgoldenrod;
-    grid-template:
-    "info"          .1fr
-    "invite"        .3fr
-    "channel-menu"  1fr/
-    1fr;
+    grid-template-rows: 50px 200px;
+    grid-auto-rows: 1fr;
+}
+
+.server-menu > div {
+    border: dotted 2px green;
+    margin: 2px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -46,19 +60,73 @@ body {
     }
 }
 
-.info {
-    grid-area: info;
-    background-color: lightcoral;
+.server-name {
+    text-align: start;
+    place-content: center;
+}
+
+.server-name > h3 {
+    margin: 0;
 }
 
 .invite {
-    grid-area: invite;
-    background-color: forestgreen;
+    display: grid;
+    grid-template-rows: 60px .5fr .5fr;
+    background-color: lightgray;
+}
+
+
+.icon-discord{
+    display: block;
+    background-color: #f7f7f7;
+    background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+    background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+    background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+    background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+    color: #a7a7a7;
+    margin: 36px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 3px #aaa, inset 0px 2px 3px #fff;
+    margin: 0;
+    place-self: center;
+}
+
+.invite > div:nth-last-of-type(2){
+    place-content: center;
+
+}
+
+.invite > div:nth-last-of-type(2) > p {
+    margin: 0;
+    text-align: center;
+}
+
+.invite-button{
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+    margin: 5px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:12px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+    text-align: center;
+    place-content: center;
 }
 
 .channel-menu {
     display: grid;
-    grid-area: channel-menu;
     background-color: deeppink;
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
@@ -67,17 +135,24 @@ body {
     background-color: rgb(211, 47, 47);
 }
 
+.main-menu {
+    display: grid;
+    grid-template-rows: 50px 1fr .1fr ;
+}
+
+.main-menu > div {
+    border: dotted 2px green;
+    margin: 2px;
+}
+
 .top-menu {
-    grid-area: top-menu;
-    background-color: darkcyan;
+    background-color: white
 }
 
 .chat {
-    grid-area: chat;
-    background-color: greenyellow;
+    background-color: white;
 }
 
 .message {
-    grid-area: message;
-    background-color: darkorchid;
+    background-color: white;
 }
